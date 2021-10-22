@@ -1,7 +1,8 @@
 package model;
 
 public class Coordinate {
-	private int x, y;
+	private int x;
+	private int y;
 	
 	public Coordinate(int x, int y) {
 		this.y=y;
@@ -21,18 +22,18 @@ public class Coordinate {
 		return y;
 		}
 	
-	public boolean equals( Coordinate c){
+	public boolean equals( Coordinate coordinate){
 		Boolean a = null;
-		if(c==this) {
+		if(coordinate==this) {
 			a= true;
 		}
-		if(c == null) {
+		if(coordinate == null) {
 			a= false;
 		}
-		if(!(c instanceof Coordinate)) {
+		if(!(coordinate instanceof Coordinate)) {
 			a= false;
 		}
-		if(x==c.x && y==c.y) {
+		if(x==coordinate.x && y==coordinate.y) {
 			a= true;
 		}
 		return a;
@@ -44,14 +45,37 @@ public class Coordinate {
 		return concatenation.toString();
 	}
 	
-	public Coordinate add( Coordinate c) {
-		Coordinate new_c= new Coordinate(x+c.x,y+c.y);
+	public Coordinate add( Coordinate coordinate) {
+		Coordinate new_c= new Coordinate(x+coordinate.x,y+coordinate.y);
 		return new_c;
 		
 	}
 	public Coordinate add(int x,int y) {
 		Coordinate new_c= new Coordinate(this.x+x,this.y+y);
 		return new_c;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + x;
+		result = prime * result + y;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Coordinate other = (Coordinate) obj;
+		if (x != other.x)
+			return false;
+		if (y != other.y)
+			return false;
+		return true;
 	}
 
 }

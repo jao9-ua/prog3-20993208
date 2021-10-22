@@ -22,22 +22,7 @@ public class Coordinate {
 		return y;
 		}
 	
-	public boolean equals( Coordinate coordinate){
-		Boolean a = null;
-		if(coordinate==this) {
-			a= true;
-		}
-		if(coordinate == null) {
-			a= false;
-		}
-		if(!(coordinate instanceof Coordinate)) {
-			a= false;
-		}
-		if(x==coordinate.x && y==coordinate.y) {
-			a= true;
-		}
-		return a;
-	}
+
 	
 	public  String toString() {
 		StringBuilder concatenation=new StringBuilder();
@@ -52,7 +37,8 @@ public class Coordinate {
 	}
 	public Coordinate add(int x,int y) {
 		Coordinate new_c= new Coordinate(this.x+x,this.y+y);
-		return new_c;
+		this.add(new_c);
+		return this;
 	}
 	@Override
 	public int hashCode() {
@@ -63,7 +49,7 @@ public class Coordinate {
 		return result;
 	}
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Coordinate obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

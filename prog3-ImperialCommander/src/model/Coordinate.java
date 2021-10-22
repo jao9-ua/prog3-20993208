@@ -31,14 +31,13 @@ public class Coordinate {
 	}
 	
 	public Coordinate add( Coordinate coordinate) {
-		Coordinate new_c= new Coordinate(x+coordinate.x,y+coordinate.y);
+		Coordinate new_c= new Coordinate(this.x+coordinate.x,this.y+coordinate.y);
 		return new_c;
 		
 	}
 	public Coordinate add(int x,int y) {
 		Coordinate new_c= new Coordinate(this.x+x,this.y+y);
-		this.add(new_c);
-		return this;
+		return new_c;
 	}
 	@Override
 	public int hashCode() {
@@ -48,7 +47,7 @@ public class Coordinate {
 		result = prime * result + y;
 		return result;
 	}
-	@Override
+	
 	public boolean equals(Coordinate obj) {
 		if (this == obj)
 			return true;

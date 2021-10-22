@@ -5,8 +5,8 @@ import model.Coordinate;
 public class MainP1 {
 
 	public static void main(String[] args) {
-		Coordinate c1 = new Coordinate(5,4);
-		Coordinate c2 = new Coordinate(c1);
+		Coordinate c1 = new Coordinate(-70,-2);
+		Coordinate c2 = new Coordinate(-2,-70);
 		Coordinate c3 = c1.add(3,1);
 		Coordinate c4 = c1.add(c2);
 		
